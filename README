@@ -1,0 +1,29 @@
+# 🛡️ Ứng Dụng Web Phát Hiện Giao Dịch Gian Lận & Rủi Ro Tín Dụng
+
+Ứng dụng web được xây dựng dựa trên mã nguồn cấu trúc từ Notebook huấn luyện mô hình phân loại Học Máy nhằm phát hiện sớm các giao dịch gian lận tài chính (`default = 1`) và các giao dịch an toàn (`default = 0`). Hệ thống sử dụng thuật toán **Random Forest Classifier** của thư viện `scikit-learn` kết hợp đồ họa tương tác **Plotly** và framework **Streamlit**.
+
+## ✨ Các Tính Năng Lõi Của Ứng Dụng
+
+Ứng dụng được chia làm 4 phân hệ tương tác chính qua hệ thống Tab chuyên biệt:
+1. **📊 Tổng quan dữ liệu:** Xem nhanh cấu trúc tập dữ liệu thô, kích thước mẫu dữ liệu, dung lượng tệp cùng bảng thống kê mô tả phân bổ khoa học các thuộc tính.
+2. **📈 Trực quan hóa dữ liệu:** Biểu đồ hóa tần suất lớp mất cân bằng của biến mục tiêu và phân phối mật độ của các thuộc tính đầu vào (X_1 đến X_14) lồng ghép biểu đồ hộp (Boxplot) phát hiện điểm ngoại lai.
+3. **🎯 Kết quả huấn luyện & Kiểm định:** Hiển thị trực quan các chỉ số đo lường hiệu năng cốt lõi (Accuracy, Precision, Recall, F1-Score) cùng Ma trận nhầm lẫn (Confusion Matrix) và Đồ thị xếp hạng mức độ đóng góp quan trọng của các biến (Feature Importance).
+4. **🔮 Sử dụng mô hình dự báo:** Hỗ trợ 2 chế độ chẩn đoán độc lập:
+   - *Chế độ nhập liệu cá nhân:* Tự động điền dữ liệu trung vị mẫu, cho phép tinh chỉnh nhanh thông số của 1 giao dịch để chẩn đoán tức thời.
+   - *Chế độ dự báo hàng loạt:* Tải lên tệp danh sách mới (`X_new`) chứa các thuộc tính để chấm điểm hàng loạt, thống kê tỷ lệ phần trăm nguy cơ và xuất báo cáo CSV định dạng chuẩn mở rộng.
+
+## 📁 Cấu Trúc File Dữ Liệu Đầu Vào Hợp Lệ
+
+Tệp dữ liệu nạp vào hệ thống để chạy huấn luyện cần đảm bảo định dạng cấu trúc bảng tính (`.csv`, `.xlsx`) và bao gồm tối thiểu các cột thông tin sau:
+- **Biến đặc trưng đầu vào (14 biến định lượng):** `X_1`, `X_2`, `X_3`, `X_4`, `X_5`, `X_6`, `X_7`, `X_8`, `X_9`, `X_10`, `X_11`, `X_12`, `X_13`, `X_14`.
+- **Biến mục tiêu phân lớp:** Cột `default` nhận hai giá trị nguyên nhị phân phân biệt (`0`: Bình thường / Giao dịch sạch, `1`: Gian lận / Rủi ro cao).
+
+## 🛠️ Hướng Dẫn Cài Đặt & Khởi Chạy Ứng Dụng
+
+### Bước 1: Chuẩn bị môi trường máy tính
+Đảm bảo máy tính của bạn đã được cài đặt môi trường **Python (phiên bản từ 3.9 đến 3.12)**.
+
+### Bước 2: Cài đặt các thư viện phụ thuộc bắt buộc
+Di chuyển Terminal/Command Prompt vào thư mục chứa mã nguồn ứng dụng và thực thi lệnh sau để tự động tải các gói:
+```bash
+pip install -r requirements.txt
