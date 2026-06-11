@@ -14,11 +14,10 @@ st.set_page_config(
     layout="wide",
     page_title="Hệ Thống Phát Hiện Giao Dịch Gian Lận tại Agribank",
     page_icon="❤💕"
-)
 
 # ==========================================
 # 1. CÁC HÀM CACHE DÙNG CHUNG
-# ==========================================
+# ====================f======================
 @st.cache_data
 def load_data(file_bytes, file_name):
     """
@@ -104,7 +103,7 @@ with st.sidebar:
 # ==========================================
 # 3. THÀNH PHẦN 2: HEADER — VÙNG ĐỊNH HƯỚNG
 # ==========================================
-st.title("🛡️ Ứng Dụng Phát Hiện Giao Dịch Gian Lận & Rủi Ro Tín Dụng")
+st.title("Ứng Dụng Phát Hiện Giao Dịch Gian Lận & Rủi Ro Tín Dụng")
 st.caption("Ứng dụng thông minh hỗ trợ phân tích dữ liệu lịch sử giao dịch nhằm phát hiện các hành vi gian lận tài chính sử dụng thuật toán Học máy ngẫu nhiên (Random Forest Classifier).")
 
 df_main = None
